@@ -63,6 +63,7 @@
     <Compile Include="Game.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PlatformEntitiesFix.cs" />
     <Compile Include="PlayerFix.cs" />
     <Compile Include="GameFix.cs" />
     <Compile Include="Model.Context.cs">
@@ -80,7 +81,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="PlatformEntities.cs" />
     <Compile Include="Player.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
