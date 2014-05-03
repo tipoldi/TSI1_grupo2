@@ -28,7 +28,7 @@ namespace Core.Services
 		AddGame(string name, Url url)
 		{
 			return AddToModel(model.Games, new Game {
-				Name = name,
+				Name    = name,
 				URLFix  = url
 			});
 		}
@@ -66,5 +66,8 @@ namespace Core.Services
 		{
 			players.ForEach(p => game.Players.Remove(p));
 		}
+
+		public abstract void
+		Dispose();
 	}
 }

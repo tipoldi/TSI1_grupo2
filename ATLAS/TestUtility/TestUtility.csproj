@@ -58,14 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertX.cs" />
+    <Compile Include="Contexts\BasicContext.cs" />
     <Compile Include="EnumerableX.cs" />
     <Compile Include="Mocks\MockEntitiesService.cs" />
     <Compile Include="Mocks\MockHashService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contexts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{b5306cc9-2e70-4940-8a7e-6f3bc7c86576}</Project>

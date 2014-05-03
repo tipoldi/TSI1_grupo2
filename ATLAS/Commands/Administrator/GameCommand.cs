@@ -5,7 +5,7 @@ using Core.Services;
 
 namespace Commands.Administrator
 {
-	class GameCommand
+	public class GameCommand
 	{
 		readonly IEntitiesService entitiesService;
 

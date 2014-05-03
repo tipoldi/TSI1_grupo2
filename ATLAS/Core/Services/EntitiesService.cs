@@ -1,21 +1,20 @@
-﻿using Microsoft.Practices.Unity;
-using Model;
+﻿using Model;
 
 namespace Core.Services
 {
 	public class EntitiesService : EntitiesServiceBase
 	{
-		readonly UnityContainer container = new UnityContainer();
-
 		public
 		EntitiesService()
 		{
 			hashService = new HashService();
 			model       = new PlatformEntities();
-			container
-				.RegisterInstance(hashService)
-				.RegisterInstance(model)
-			;
+		}
+
+		public override void
+		Dispose()
+		{
+			model.Dispose();
 		}
 	}
 }
