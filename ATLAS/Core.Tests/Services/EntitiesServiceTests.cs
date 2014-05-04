@@ -14,12 +14,12 @@ namespace Core.Tests.Services
 		CanCreatePlayerWithoutSaveChanges()
 		{
 			using (var context = new BasicContext()) {
-				AssertX.IsEmpty(context.EntitiesService.Players);
+				AssertX.IsEmpty(context.Entities.Players);
 				const string nick  = "Vikingo";
 				const string email = "john.doe@example.com";
-				var player         = context.EntitiesService.AddPlayer(nick, email, "1234");
+				var player         = context.Entities.AddPlayer(nick, email, "1234");
 
-				AssertX.IsEmpty(context.EntitiesService.Players);
+				AssertX.IsEmpty(context.Entities.Players);
 				Assert.AreEqual(nick,        player.Nick);
 				Assert.AreEqual(email,       player.Email);
 				Assert.AreEqual(0,           player.State);
@@ -33,12 +33,12 @@ namespace Core.Tests.Services
 		CanCreatePlayerWithSaveChanges()
 		{
 			using (var context = new BasicContext()) {
-				AssertX.IsEmpty(context.EntitiesService.Players);
+				AssertX.IsEmpty(context.Entities.Players);
 				const string nick  = "Vikingo";
 				const string email = "john.doe@example.com";
-				context.EntitiesService.AddPlayer(nick, email, "1234");
-				context.EntitiesService.SaveChanges();
-				var player         = context.EntitiesService.Players.FirstOrDefault();
+				context.Entities.AddPlayer(nick, email, "1234");
+				context.Entities.SaveChanges();
+				var player         = context.Entities.Players.FirstOrDefault();
 
 				Assert.IsNotNull(player);
 				Assert.AreEqual(nick,  player.Nick);
@@ -54,12 +54,12 @@ namespace Core.Tests.Services
 		CanCreateGameWithoutSaveChanges()
 		{
 			using (var context = new BasicContext()) {
-				AssertX.IsEmpty(context.EntitiesService.Games);
+				AssertX.IsEmpty(context.Entities.Games);
 				const string name  = "Tetris";
 				var          url   = new Url("www.tetris.com");
-				var game           = context.EntitiesService.AddGame(name, url);
-				context.EntitiesService.SaveChanges();
-				var modelGame      = context.EntitiesService.Games.FirstOrDefault();
+				var game           = context.Entities.AddGame(name, url);
+				context.Entities.SaveChanges();
+				var modelGame      = context.Entities.Games.FirstOrDefault();
 
 				Assert.IsNotNull(modelGame);
 				Assert.AreEqual(name,  modelGame.Name);
@@ -73,11 +73,11 @@ namespace Core.Tests.Services
 		CanAddGamePlayers()
 		{
 			using (var context = new BasicContext()) {
-				var game = context.EntitiesService.AddGame("Tetris", new Url("www.tetris.com"));
+				var game = context.Entities.AddGame("Tetris", new Url("www.tetris.com"));
 				AssertX.IsEmpty(game.Players);
-				var player1 = context.EntitiesService.AddPlayer("Player1 Name", "Player1 Email", "1234");
-				var player2 = context.EntitiesService.AddPlayer("Player2 Name", "Player2 Email", "1234");
-				context.EntitiesService.AddGamePlayers(game, player1, player2);
+				var player1 = context.Entities.AddPlayer("Player1 Name", "Player1 Email", "1234");
+				var player2 = context.Entities.AddPlayer("Player2 Name", "Player2 Email", "1234");
+				context.Entities.AddGamePlayers(game, player1, player2);
 				Assert.AreEqual(2, game.Players.Count);
 			}
 		}
@@ -87,16 +87,16 @@ namespace Core.Tests.Services
 		CanRemoveGamePlayers()
 		{
 			using (var context = new BasicContext()) {
-				var game = context.EntitiesService.AddGame("Tetris", new Url("www.tetris.com"));
-				var player1 = context.EntitiesService.AddPlayer("Player1 Name", "Player1 Email", "1234");
-				var player2 = context.EntitiesService.AddPlayer("Player2 Name", "Player2 Email", "1234");
-				context.EntitiesService.AddGamePlayers(game, player1, player2);
-				context.EntitiesService.SaveChanges();
+				var game = context.Entities.AddGame("Tetris", new Url("www.tetris.com"));
+				var player1 = context.Entities.AddPlayer("Player1 Name", "Player1 Email", "1234");
+				var player2 = context.Entities.AddPlayer("Player2 Name", "Player2 Email", "1234");
+				context.Entities.AddGamePlayers(game, player1, player2);
+				context.Entities.SaveChanges();
 
-				context.EntitiesService.RemoveGamePlayers(context.EntitiesService.Games.First(), player1);
-				context.EntitiesService.SaveChanges();
+				context.Entities.RemoveGamePlayers(context.Entities.Games.First(), player1);
+				context.Entities.SaveChanges();
 
-				AssertX.AreEqual(new[] { "Player2 Name" }, context.EntitiesService.Games.First().Players.Select(p => p.Nick).ToArray());
+				AssertX.AreEqual(new[] { "Player2 Name" }, context.Entities.Games.First().Players.Select(p => p.Nick).ToArray());
 			}
 		}
 	}

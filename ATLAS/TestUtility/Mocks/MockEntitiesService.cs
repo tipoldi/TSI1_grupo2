@@ -7,10 +7,10 @@ namespace TestUtility.Mocks
 	public class MockEntitiesService : EntitiesServiceBase, IDisposable
 	{
 		public
-		MockEntitiesService()
+		MockEntitiesService(PlatformEntities model, IHashService hashService)
 		{
-			hashService = new MockHashService();
-			model       = new PlatformEntities();
+			this.hashService = hashService;
+			this.model       = model;
 		}
 
 		public override void

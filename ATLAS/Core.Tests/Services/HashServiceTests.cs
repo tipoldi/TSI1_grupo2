@@ -1,5 +1,4 @@
-﻿using System;
-using Core.Services;
+﻿using Core.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestUtility.Contexts;
 
@@ -10,12 +9,11 @@ namespace Core.Tests.Services
 	{
 		[TestMethod]
 		public void
-		CanGetRandomSalt()
+		CanGetSalt()
 		{
 			using (var context = new BasicContext()) {
 				var service = context.Resolve<IHashService>();
-				var salt = service.NewSalt();
-				Console.WriteLine(salt);
+				Assert.AreEqual("SALT", service.NewSalt());
 			}
 		}
 	}

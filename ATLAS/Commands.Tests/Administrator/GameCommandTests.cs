@@ -19,9 +19,9 @@ namespace Commands.Tests.Administrator
 				var          url     = new Url("www.tetris.com");
 				var          command = context.Resolve<GameCommand>();
 
-				AssertX.IsEmpty(context.EntitiesService.Games);
+				AssertX.IsEmpty(context.Entities.Games);
 				var          result  = command.AddGame(name, url);
-				AssertX.IsNotEmpty(context.EntitiesService.Games);
+				AssertX.IsNotEmpty(context.Entities.Games);
 
 				Assert.AreEqual(name,      result.Name);
 				Assert.AreEqual(url.Value, result.URL);

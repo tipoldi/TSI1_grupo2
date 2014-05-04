@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Policy;
 using Core.Services;
 using Microsoft.Practices.Unity;
+using Model;
 using TestUtility.Mocks;
 
 namespace TestUtility.Contexts
 {
 	public class BasicContext : IDisposable
 	{
-		readonly UnityContainer container = new UnityContainer();
-		public IEntitiesService EntitiesService { get; private set; }
+		readonly UnityContainer   container = new UnityContainer();
+		public   IEntitiesService Entities { get; private set; }
+		public   IHashService     HashService     { get; private set; }
+
 
 		public
 		BasicContext()
 		{
-			EntitiesService = new MockEntitiesService();
 			container
-				.RegisterInstance(EntitiesService)
+				.RegisterInstance(new PlatformEntities())
+				.RegisterType<IHashService,     MockHashService>()
+				.RegisterType<IEntitiesService, MockEntitiesService>()
 			;
+			HashService     = Resolve<IHashService>();
+			Entities = Resolve<IEntitiesService>();
 		}
 
 		public T
@@ -53,7 +60,7 @@ namespace TestUtility.Contexts
 		public void
 		Dispose()
 		{
-			EntitiesService.Dispose();
+			Entities.Dispose();
 		}
 	}
 }
