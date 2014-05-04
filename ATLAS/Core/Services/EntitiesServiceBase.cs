@@ -1,6 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Policy;
+using Core.Exceptions;
 using Microsoft.Practices.ObjectBuilder2;
 using Model;
 
@@ -48,6 +50,18 @@ namespace Core.Services
 				Hash  = hashService.GetHash(password, salt),
 				Salt  = salt
 			});
+		}
+
+		public Player
+		GetPlayer(long playerID)
+		{
+			var player = model
+				.Players
+				.FirstOrDefault(p => p.PlayerID == playerID);
+			if (player == null) {
+				throw new EntityNotFoundException(typeof(Player), playerID);
+			}
+			return player;
 		}
 
 		public IQueryable<Player>

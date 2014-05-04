@@ -62,6 +62,28 @@ namespace TestUtility
 			IsNotNullOrEmpty(ToArray(actual));
 		}
 
+		public static void
+		AssertThrows<T>(Action action, string message = null) where T : Exception
+		{
+			try {
+				action();
+			}
+			catch (T t) {
+				if (message == null || (t.Message == message)) {
+					Assert.IsTrue(true);
+				}
+				else {
+					Assert.Fail("{0} was thrown but expected <'{1}'> message is different than <'{2}'>.", typeof (T).Name, t.Message, message);
+				}
+				return;
+			}
+			catch (Exception exp) {
+
+				Assert.Fail("{0} was thrown instead {1}.", exp.GetType().Name, typeof (T).Name);
+			}
+			Assert.Fail("{0} not thrown.", typeof (T).Name);
+		}
+
 		static void
 		IsNotNullOrEmpty(Array array)
 		{

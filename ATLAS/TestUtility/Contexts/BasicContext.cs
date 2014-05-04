@@ -11,8 +11,8 @@ namespace TestUtility.Contexts
 	public class BasicContext : IDisposable
 	{
 		readonly UnityContainer   container = new UnityContainer();
-		public   IEntitiesService Entities { get; private set; }
-		public   IHashService     HashService     { get; private set; }
+		public   IEntitiesService Entities    { get; private set; }
+		public   IHashService     HashService { get; private set; }
 
 
 		public

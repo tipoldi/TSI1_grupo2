@@ -24,6 +24,9 @@ namespace Core.Services
 		void
 		RemoveGamePlayers(Game game, params Player[] players);
 
+		Player
+		GetPlayer(long playerID);
+
 		void
 		Dispose();
 	}

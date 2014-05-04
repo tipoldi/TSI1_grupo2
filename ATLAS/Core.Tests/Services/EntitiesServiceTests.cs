@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Security.Policy;
+using Core.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestUtility;
 using TestUtility.Contexts;
@@ -97,6 +98,22 @@ namespace Core.Tests.Services
 				context.Entities.SaveChanges();
 
 				AssertX.AreEqual(new[] { "Player2 Name" }, context.Entities.Games.First().Players.Select(p => p.Nick).ToArray());
+			}
+		}
+
+		[TestMethod]
+		public void
+		CanGetPlayer()
+		{
+			using (var context = new BasicContext()) {
+				var player = context.Entities.AddPlayer("Vikingo", "john.doe@example.com", "1234");
+				context.Entities.SaveChanges();
+
+				var existing = context.Entities.GetPlayer(player.PlayerID);
+				Assert.AreEqual(existing.Nick, player.Nick);
+
+				var nonExistingID = context.Entities.Players.Max(p => p.PlayerID) + 1;
+				AssertX.AssertThrows<EntityNotFoundException>(() => context.Entities.GetPlayer(nonExistingID), string.Format("Player with PlayerID = {0} not found.", nonExistingID));
 			}
 		}
 	}
