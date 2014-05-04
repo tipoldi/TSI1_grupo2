@@ -4,6 +4,7 @@ using Core.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestUtility;
 using TestUtility.Contexts;
+using PlayerState = Model.Player.PlayerState;
 
 namespace Core.Tests.Services
 {
@@ -21,11 +22,12 @@ namespace Core.Tests.Services
 				var player         = context.Entities.AddPlayer(nick, email, "1234");
 
 				AssertX.IsEmpty(context.Entities.Players);
-				Assert.AreEqual(nick,        player.Nick);
-				Assert.AreEqual(email,       player.Email);
-				Assert.AreEqual(0,           player.State);
-				Assert.AreEqual("502959549", player.Hash);
-				Assert.AreEqual("SALT",      player.Salt);
+				Assert.AreEqual(nick,                player.Nick);
+				Assert.AreEqual(email,               player.Email);
+				Assert.AreEqual(0,                   player.State);
+				Assert.AreEqual(PlayerState.Offline, player.StateFix);
+				Assert.AreEqual("502959549",         player.Hash);
+				Assert.AreEqual("SALT",              player.Salt);
 			}
 		}
 

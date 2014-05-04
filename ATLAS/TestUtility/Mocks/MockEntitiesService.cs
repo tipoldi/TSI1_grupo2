@@ -24,9 +24,7 @@ namespace TestUtility.Mocks
 		CleanModel()
 		{
 			var tablesInOrder = new[] {"Player", "Game", "GamePlayer"};
-			model.Database.ExecuteSqlCommand("DELETE [Player]");
-			model.Database.ExecuteSqlCommand("DELETE [Game]");
-			model.Database.ExecuteSqlCommand("DELETE [GamePlayer]");
+			tablesInOrder.ForEach(DeleteTable);
 		}
 
 		private void

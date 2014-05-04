@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Policy;
 using Core.Services;
 using Microsoft.Practices.Unity;
 using Model;
@@ -10,9 +9,9 @@ namespace TestUtility.Contexts
 {
 	public class BasicContext : IDisposable
 	{
-		readonly UnityContainer   container = new UnityContainer();
-		public   IEntitiesService Entities    { get; private set; }
-		public   IHashService     HashService { get; private set; }
+		readonly UnityContainer container = new UnityContainer();
+
+		public IEntitiesService Entities { get; private set; }
 
 
 		public
@@ -23,7 +22,6 @@ namespace TestUtility.Contexts
 				.RegisterType<IHashService,     MockHashService>()
 				.RegisterType<IEntitiesService, MockEntitiesService>()
 			;
-			HashService     = Resolve<IHashService>();
 			Entities = Resolve<IEntitiesService>();
 		}
 
