@@ -119,16 +119,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\000.CreateDB.sql" />
-    <Content Include="DB\001.Game_Table.sql" />
-    <Content Include="DB\002.Player_Table.sql" />
-    <Content Include="DB\003.Game_DeafaultValues.sql" />
-    <Content Include="DB\004.GamePlayer_Table.sql" />
-    <Content Include="DB\005.GamePlayer_Relationships.sql" />
-    <Content Include="DB\006.Player_FixDefaultValues.sql" />
-    <Content Include="DB\007.Game_FixDefaultValues.sql" />
-    <Content Include="GameSchema\000.CreateDB.sql" />
+    <Content Include="GameSchema\CreateDB.sql" />
     <Content Include="GameSchema\DB\001.Clan.sql" />
+    <Content Include="GameSchema\DeleteDB.sql" />
+    <Content Include="PlatformSchema\CreateDB.sql" />
+    <Content Include="PlatformSchema\DB\001.Game_Table.sql" />
+    <Content Include="PlatformSchema\DB\002.Player_Table.sql" />
+    <Content Include="PlatformSchema\DB\003.Game_DeafaultValues.sql" />
+    <Content Include="PlatformSchema\DB\004.GamePlayer_Table.sql" />
+    <Content Include="PlatformSchema\DB\005.GamePlayer_Relationships.sql" />
+    <Content Include="PlatformSchema\DB\006.Player_FixDefaultValues.sql" />
+    <Content Include="PlatformSchema\DB\007.Game_FixDefaultValues.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
