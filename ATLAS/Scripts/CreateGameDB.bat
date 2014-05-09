@@ -6,7 +6,7 @@ pause
 Exit
 )
 pushd ..\Model\GameSchema
-sqlcmd -S .\SQLEXPRESS -i 000.CreateDB.sql -v dbname="Game%gameID%"
+sqlcmd -S .\SQLEXPRESS -i CreateDB.sql -v dbname="Game%gameID%"
 popd
 pushd ..\Model\GameSchema\DB
 for %%g in (*.sql) do (
