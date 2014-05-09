@@ -31,7 +31,7 @@ namespace TestUtility.Mocks
 		DeleteTable(string tableName)
 		{
 			model.Database.ExecuteSqlCommand(string.Format("DELETE [{0}]", tableName));
-			Console.WriteLine(string.Format("Deleted table: {0}", tableName));
+			Console.WriteLine(@"Deleted table: {0}", tableName);
 		}
 	}
 }

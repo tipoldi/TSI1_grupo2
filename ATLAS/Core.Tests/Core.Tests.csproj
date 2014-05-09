@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Services\EntitiesServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PersistenceServiceTests.cs" />
     <Compile Include="Services\HashServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

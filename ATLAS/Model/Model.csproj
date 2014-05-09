@@ -127,6 +127,8 @@
     <Content Include="DB\005.GamePlayer_Relationships.sql" />
     <Content Include="DB\006.Player_FixDefaultValues.sql" />
     <Content Include="DB\007.Game_FixDefaultValues.sql" />
+    <Content Include="GameSchema\000.CreateDB.sql" />
+    <Content Include="GameSchema\DB\001.Clan.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Services\EntitiesService.cs" />
     <Compile Include="Services\EntitiesServiceBase.cs" />
+    <Compile Include="Services\PersistenceService.cs" />
     <Compile Include="Services\HashService.cs" />
     <Compile Include="Services\IEntitiesService.cs" />
     <Compile Include="Services\IHashService.cs" />
