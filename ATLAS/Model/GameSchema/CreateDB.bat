@@ -13,3 +13,4 @@ copy "output.txt"+"%%g.txt" "output.txt"
 del "%%g.txt"
 )
 popd
+if errorlevel 1 pause
