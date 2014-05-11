@@ -36,7 +36,7 @@ namespace Core.Services
 					CreateNoWindow         = true,
 					WindowStyle            = ProcessWindowStyle.Hidden,
 					FileName               = string.Format(@"{0}\Scripts\{1}", GetRootDirectory(), "CreateGameDB.bat"),
-					Arguments              = string.Format("{0} {1} {2} > testlog.txt 2> testerrors.txt", sqlServerName, gameID.ToString(CultureInfo.InvariantCulture), gameSchemaPath)
+					Arguments              = string.Format("{0} {1} {2} > testlog2.txt 2> testerrors2.txt", sqlServerName, gameID.ToString(CultureInfo.InvariantCulture), gameSchemaPath)
 				}
 			};
 			process.Start();
