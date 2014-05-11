@@ -6,12 +6,14 @@ namespace Core.Tests.Services
 	[TestClass]
 	public class PersistenceServiceTests
 	{
-		[TestMethod, Ignore]
+		[TestMethod]
 		public void
 		CanCreateNewGameDB()
 		{
 			var service = new PersistenceService("SQLEXPRESS");
-			service.CreateGameDB(60);
+			const long gameID = 60;
+			service.CreateGameDB(gameID);
+			service.DeleteGameDB(gameID);
 		}
 	}
 }

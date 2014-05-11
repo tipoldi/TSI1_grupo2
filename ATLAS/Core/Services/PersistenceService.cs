@@ -27,6 +27,18 @@ namespace Core.Services
 		public void
 		CreateGameDB(long gameID)
 		{
+			ExecGameScript(gameID, "CreateGameDB.bat");
+		}
+
+		public void
+		DeleteGameDB(long gameID)
+		{
+			ExecGameScript(gameID, "DropGameDB.bat");
+		}
+
+		private void
+		ExecGameScript(long gameID, string fileName)
+		{
 			var gameSchemaPath = GetRootDirectory().Replace('/', '\\') + "\\Model\\GameSchema";
 			var process        = new Process {
 				StartInfo = {
@@ -35,12 +47,12 @@ namespace Core.Services
 					RedirectStandardError  = true,
 					CreateNoWindow         = true,
 					WindowStyle            = ProcessWindowStyle.Hidden,
-					FileName               = string.Format(@"{0}\Scripts\{1}", GetRootDirectory(), "CreateGameDB.bat"),
-					Arguments              = string.Format("{0} {1} {2} > testlog2.txt 2> testerrors2.txt", sqlServerName, gameID.ToString(CultureInfo.InvariantCulture), gameSchemaPath)
+					FileName               = string.Format(@"{0}\Scripts\{1}", GetRootDirectory(), fileName),
+					Arguments              = string.Format("{0} {1} {2}", sqlServerName, gameID.ToString(CultureInfo.InvariantCulture), gameSchemaPath)
 				}
 			};
 			process.Start();
-			process.WaitForExit();
+			process.WaitForExit(4000);
 		}
 	}
 }
