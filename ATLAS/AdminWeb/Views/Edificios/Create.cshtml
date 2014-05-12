@@ -1,0 +1,61 @@
+﻿@model AdminWeb.Models.Edificio
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Edificio</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="jumbotron">
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    Nombre: @Html.EditorFor(model => model.nombre)
+                    @Html.ValidationMessageFor(model => model.nombre)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+
+                    Resistencia: @Html.EditorFor(model => model.resistencia)
+                    @Html.ValidationMessageFor(model => model.resistencia)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    Ataque: @Html.EditorFor(model => model.ataque)
+                    @Html.ValidationMessageFor(model => model.ataque)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    Foto: @Html.EditorFor(model => model.foto)
+                    @Html.ValidationMessageFor(model => model.foto)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-atlas" />
+                    <a class="btn btn-atlas" @Html.ActionLink("Volver", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

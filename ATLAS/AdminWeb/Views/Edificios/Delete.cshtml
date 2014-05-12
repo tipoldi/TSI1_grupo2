@@ -1,0 +1,38 @@
+﻿@model AdminWeb.Models.Edificio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Esta Seguro que quiere borrar el Edificio:</h3>
+<div class="jumbotron">
+    <table class="table">
+
+        <tr>
+            <td>
+                <img src="http://localhost:1428/Images/Apratamentos.png" alt="se tiene que ver una IMAGEN!!!! width=" 100" height="100">
+            </td>
+            <td>
+                <p class="lead">
+                    Nombre:      @Html.DisplayFor(model => model.nombre)<br />
+                    Resistencia: @Html.DisplayFor(model => model.resistencia)<br />
+                    Ataque:      @Html.DisplayFor(model => model.ataque)<br />
+                    Dependencias: ????
+                </p>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+        
+            <input type="submit" value="Delete" class="btn btn-atlas" /> <a class="btn btn-atlas" @Html.ActionLink("Volver", "Index")
+         
+        </div>
+    }
+

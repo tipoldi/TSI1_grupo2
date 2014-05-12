@@ -1,0 +1,74 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/*tipoldi - cambio el padding para el fixed menu*/
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-top: 60px;
+    padding-left: 180px;
+    padding-right: 15px;
+    max-height: 80px;
+}
+
+/*tipoldi - cambio el padding para el fixed menu*/
+/* Set padding to keep content from hitting the edges */
+.body-content-chat {
+    padding-top: 60px;
+    padding-left: 0px;
+    padding-right: 15px;
+    max-height: 80px;
+}
+
+/*tipoldi*/
+/* Set padding to keep content from hitting the edges */
+.LeftMenu {
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-right: 15px;
+    color: #b94a48;
+   position: fixed;
+
+}
+/*tipoldi*/
+/* Atlas footer. */
+.footer-atlas {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 15px;
+    background-color: #428bca;
+
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

@@ -1,0 +1,58 @@
+﻿@model AdminWeb.Models.Unidades
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Unidades</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resistencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resistencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ataque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ataque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.movilidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.movilidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
