@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{651C5762-A7D2-43D8-AD9F-EE423A323CC1}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Commands\Commands.csproj", "{D2D0050F-6249-450C-A790-1512B654DB5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands.Tests", "Commands.Tests\Commands.Tests.csproj", "{DECA8332-2A1F-4863-B371-711CD92D70CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminWeb", "AdminWeb\AdminWeb.csproj", "{BD19EF98-22D4-4612-A1A3-97E4E9955687}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{DECA8332-2A1F-4863-B371-711CD92D70CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DECA8332-2A1F-4863-B371-711CD92D70CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DECA8332-2A1F-4863-B371-711CD92D70CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD19EF98-22D4-4612-A1A3-97E4E9955687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD19EF98-22D4-4612-A1A3-97E4E9955687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD19EF98-22D4-4612-A1A3-97E4E9955687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD19EF98-22D4-4612-A1A3-97E4E9955687}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
