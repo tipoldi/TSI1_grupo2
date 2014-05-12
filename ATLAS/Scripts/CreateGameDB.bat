@@ -1,16 +1,21 @@
 @echo off
-set gameID=%1
-IF [%1]==[] (
+set serverName=%1
+set gameID=%2
+set schemaPath=%3
+IF [%gameID%]==[] (
 echo Value Missing
 pause
 Exit
 )
-pushd ..\Model\GameSchema
-sqlcmd -S .\SQLEXPRESS -i CreateDB.sql -v dbname="Game%gameID%"
+IF [%schemaPath%]==[] (
+set schemaPath=..\Model\GameSchema
+)
+pushd %schemaPath%
+sqlcmd -S .\%serverName% -i CreateDB.sql -v dbname="Game%gameID%"
 popd
-pushd ..\Model\GameSchema\DB
+pushd %schemaPath%\DB
 for %%g in (*.sql) do (
-sqlcmd -d "Game%gameID%" -S .\SQLEXPRESS -i "%%g"
+sqlcmd -d "Game%gameID%" -S .\%serverName% -i "%%g"
 )
 popd
 if errorlevel 1 pause

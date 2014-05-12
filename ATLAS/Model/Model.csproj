@@ -60,9 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingTypeFix.cs" />
+    <Compile Include="TechTypeFix.cs" />
+    <Compile Include="UnitTypeFix.cs" />
+    <Compile Include="ResourceTypeFix.cs" />
+    <Compile Include="PriceFix.cs" />
+    <Compile Include="DeveloperFix.cs" />
+    <Compile Include="MoveTypeFix.cs" />
+    <Compile Include="MoveFix.cs" />
+    <Compile Include="UnitFix.cs" />
+    <Compile Include="TechFix.cs" />
+    <Compile Include="BuildingFix.cs" />
+    <Compile Include="ResourceFix.cs" />
+    <Compile Include="ElementTypeFix.cs" />
+    <Compile Include="ElementFix.cs" />
     <Compile Include="Game.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClanFix.cs" />
     <Compile Include="PlatformEntitiesFix.cs" />
     <Compile Include="PlayerFix.cs" />
     <Compile Include="GameFix.cs" />

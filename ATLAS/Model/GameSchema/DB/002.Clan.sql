@@ -1,0 +1,34 @@
+USE [PRUEBA]
+GO
+
+/****** Object:  Table [dbo].[Clan]    Script Date: 11/05/2014 22:50:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Clan](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Puntos] [numeric](10, 0) NOT NULL,
+ CONSTRAINT [PK_Clan] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Clan] ADD  CONSTRAINT [DF_Clan_Nombre]  DEFAULT ('') FOR [Nombre]
+GO
+
+ALTER TABLE [dbo].[Clan] ADD  CONSTRAINT [DF_Clan_Puntos]  DEFAULT ((0)) FOR [Puntos]
+GO
+
